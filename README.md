@@ -34,6 +34,9 @@ pip3 install -r requirements.txt
 uvicorn main:app --reload
 ```
 
+![Image](https://raw.githubusercontent.com/kayesokua/artshoppe/master/screen1.png)
+
+
 ### Website Client
 1. Go to the respective backend folder
 ```
@@ -48,3 +51,5 @@ npm install
 ```
 npm start
 ```
+
+![Image](https://raw.githubusercontent.com/kayesokua/artshoppe/master/screen2.png)

@@ -8,7 +8,6 @@ from db.database import get_db
 from db import db_user
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
-
 SECRET_KEY = '333809dfe79d55fc49216952965632e7cc0b46b1d27ce34792581014a6cef1b1'
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 30

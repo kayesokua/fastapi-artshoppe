@@ -1,24 +1,27 @@
-from pydantic import BaseModel
-from datetime import datetime
-from typing import List
-
+from pydantic import BaseModel, EmailStr
+from datetime import datetime, date
+from typing import List, Union, Literal, Optional
+from uuid import UUID
 
 class UserBase(BaseModel):
   username: str
-  email: str
+  email: EmailStr
   password: str
+  birthdate: date
 
 class UserDisplay(BaseModel):
   username: str
   email: str
+  birthdate: date
   class Config():
     orm_mode = True
 
 class PostBase(BaseModel):
+  title: str
+  price: float
   image_url: str
-  image_url_type: str
-  caption: str
-  creator_id: int
+  image_url_type: Literal['absolute','relative']
+  creator_id: Union[UUID, int, str]
 
 # For PostDisplay
 class User(BaseModel):
@@ -27,30 +30,28 @@ class User(BaseModel):
     orm_mode = True
 
 # For PostDisplay
-class Comment(BaseModel):
+class Review(BaseModel):
   text: str
   username: str
-  timestamp: datetime
   class Config():
     orm_mode = True
 
 class PostDisplay(BaseModel):
-  id: int
+  title: str
+  price: float
   image_url: str
   image_url_type: str
-  caption: str
-  timestamp: datetime
-  user: User
-  comments: List[Comment]
+  user: Optional[User]
+  reviews: List[Review]
   class Config():
     orm_mode = True
 
 class UserAuth(BaseModel):
-  id: int
+  id: Union[UUID, int, str]
   username: str
   email: str
 
-class CommentBase(BaseModel):
+class ReviewBase(BaseModel):
   username: str
   text: str
-  post_id: int
+  post_id: Union[UUID, int, str]

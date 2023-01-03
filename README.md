@@ -53,3 +53,6 @@ npm start
 ```
 
 ![Image](https://raw.githubusercontent.com/kayesokua/artshoppe/master/screen2.png)
+
+### Testing
+Random data generator for testing: https://gist.github.com/kayesokua/178affc5af73e01e9a7baa917dea23fa
